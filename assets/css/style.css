@@ -1,0 +1,30 @@
+body {
+    border-top: 15px solid rgb(26, 75, 90);
+    background: rgb(190, 190, 190);
+}
+.container{
+    background: white;
+    border-bottom: 3px solid   rgb(255, 133, 153);
+    border-left: 3px solid   rgb(255, 133, 153);
+    border-right: 3px solid   rgb(255, 133, 153);
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.btn-primary{
+    background: rgb(85, 110, 110);
+    margin: 5px;
+    border: 2px solid rgb(255, 133, 153);
+    border-radius: 20px;
+    color: aquamarine;
+}
+#buttons {
+    margin: 10px;
+}
+#addButtonLabel {
+    font-weight: bold;
+    color: rgb(26, 75, 90);
+    font-size: 20px;
+}
+#bottom-row {
+    padding-bottom: 25px;
+}
