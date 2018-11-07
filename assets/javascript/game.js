@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 $(document).ready(function() {
     // -> steps
     //      1. load pre-existing buttons
@@ -15,7 +7,7 @@ $(document).ready(function() {
     //              var with attr
     //              for loop to add type to buttons
 
-    var preExButtons = ["car ", "spaceship", "cat", "monkey"];
+    var preExButtons = ["SNL ", "Spaceship", "Horse", "Iguana", "Uggly Cry", "Batman", "Bob Ross"];
 
     function addType() {
         $("#buttons").empty();
@@ -52,8 +44,8 @@ $(document).ready(function() {
              // console.log(response.data.url);
              gifImage.attr("src", imageUrl)
              gifImage.attr("id", "gif-style")
-             //gifImage.attr("alt", )
-             console.log(response);
+             
+             
             // sets the image to the gif container in html
             $("#gifContainer").prepend(gifImage);
           })
