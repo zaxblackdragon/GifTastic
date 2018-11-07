@@ -37,7 +37,7 @@ $(document).ready(function() {
     //                          feed type to the api  and request the respone
     //                          pop gif field with resposne
     $(document).on("click", "button", function() {
-        
+
         var giffyReq = $(this).attr("data-type");
         var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + giffyReq;
  
@@ -45,10 +45,16 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
           }).then(function(response) {
-
-            var imageUrl = response.data.url;
-              console.log(response.data.url);
-            //$("#gifContainer").append()
+            // set the image location to a var
+            var imageUrl = response.data.image_original_url;
+            // adds an image tag to a var
+            var gifImage = $("<img>");
+             // console.log(response.data.url);
+             gifImage.attr("src", imageUrl)
+             //gifImage.attr("alt", )
+             console.log(response);
+            // sets the image to the gif container in html
+            $("#gifContainer").prepend(gifImage);
           })
     });
 
