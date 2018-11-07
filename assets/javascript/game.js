@@ -51,6 +51,7 @@ $(document).ready(function() {
             var gifImage = $("<img>");
              // console.log(response.data.url);
              gifImage.attr("src", imageUrl)
+             gifImage.attr("id", "gif-style")
              //gifImage.attr("alt", )
              console.log(response);
             // sets the image to the gif container in html

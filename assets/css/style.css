@@ -28,3 +28,12 @@ body {
 #bottom-row {
     padding-bottom: 25px;
 }
+#gif-style {
+    background: rgb(85, 110, 110);
+    height: 150px;
+    margin: 5px;
+    border: 3px solid aquamarine;
+    border-radius: 20px;
+    padding: 10px;
+
+}
