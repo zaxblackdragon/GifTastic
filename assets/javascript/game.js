@@ -2,7 +2,7 @@ $(document).ready(function() {
 // -> onload button names
     var preExButtons = ["SNL ", "Spaceship", "Horse", "Iguana", "Uggly Cry", "Batman", "Bob Ross"];
 // -> func for creating buttons from the array
-    function addType() {
+    function addGifButton() {
         $("#buttons").empty();
         for (var i =0; i < preExButtons.length; i++) {
             // stores the btn tag
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     }
 // -> calls the func to add btn at page onload
-    addType();
+addGifButton();
 
 
 
@@ -56,9 +56,12 @@ $(document).ready(function() {
     //                          call func from step 1
  
 
-    // testing onclick for submit button -> it resets the page when clicked
+    // event listener for the submit button
     $("form").on("click", "button", function() {
-        console.log("test");
+        // stores user input to a var
+        var inputData = $("#button-maker").val();
+        preExButtons.push(inputData);
+        addGifButton();
     })
     
 }); // -> doc ready close
