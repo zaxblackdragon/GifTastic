@@ -28,40 +28,68 @@ addGifButton();
 // ->   adds an attr and stores it in the var
         var giffyReq = $(this).attr("data-type");
 //  ->      stores the api req
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + giffyReq;
- // -> call
+        //var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + giffyReq;
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giffyReq + "&api_key=2tVahAdSxcg2GVSmaASD7AlTr9d5z8rG&limit=10";
+        
+ // -> call 2tVahAdSxcg2GVSmaASD7AlTr9d5z8rG &tag
         $.ajax({
             url: queryURL,
             method: "GET"
           }).then(function(response) {
             // set the response to a var
-            var imageUrl = response.data.image_original_url;
-            // adds an image tag to a var
-            var gifImage = $("<img>");
-             // adds attr to the img tag
-             gifImage.attr("src", imageUrl)
-             gifImage.attr("id", "gif-style")
-             
-             
-            // sets the image to the gif container in html
-            $("#gifContainer").prepend(gifImage);
-          })
+            
+            
+            var responseObj = response.data;
+           
+            for (var i =0; i < responseObj.length; i++) {
+                var imageStillUrl = response.data[i].images.original_still.url;
+                var imageMoveUrl = response.data[i].images.original.url;
+                var rating = response.data[i].rating;
+           
+                var ratingInfo = $("<p>");
+                var gifImage = $("<img>");
+                var gifRatingContainer = $("<button>");
+
+                gifRatingContainer.addClass("container");
+                gifRatingContainer.attr("id", "box");
+
+                
+                gifImage.attr("src", imageStillUrl);
+                gifImage.attr("class", "gif-style");
+                gifImage.attr("data-still", imageStillUrl);
+                gifImage.attr("data-move", imageMoveUrl);
+
+                ratingInfo.attr("id", "ratingLabel");
+                ratingInfo.text("Rating: " + rating.toUpperCase());
+                
+                $("#gifContainer").prepend(gifRatingContainer);
+                $("#box").prepend(gifImage);
+                $("#box").prepend(ratingInfo);
+
+                
+            }
+            $(".gif-style").on("click", function (event) {
+                if ($(this).attr("src") === $(this).attr("data-still")){
+                    $(this).attr("src", $(this).attr("data-move"));
+                }
+                else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                }
+            });
+          }) 
     });
-    // $(document).on("click", "button", function() {
-    //     console.log("test");
-    // }
-    //      3. user creates button that works the same as pre-existing buttons
-    //              event listener tied to the user input ie submit button
-    //                         push user input to the button variable from step  1
-    //                          call func from step 1
- 
+    
+
+  
 
     // event listener for the submit button
-    $("form").on("click", "button", function() {
+    $("#submit-btn").on("click",  function(event) {
         // stores user input to a var
-        var inputData = $("#button-maker").val();
+        event.preventDefault();
+        var inputData = $("#button-maker").val().trim();
         preExButtons.push(inputData);
         addGifButton();
     })
-    
+
+
 }); // -> doc ready close

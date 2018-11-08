@@ -2,7 +2,10 @@ body {
     border-top: 15px solid rgb(26, 75, 90);
     background: rgb(190, 190, 190);
 }
-.container{
+p {
+    margin: 0px;
+}
+#masterContainer{
     background: white;
     border-bottom: 3px solid   rgb(255, 133, 153);
     border-left: 3px solid   rgb(255, 133, 153);
@@ -28,12 +31,25 @@ body {
 #bottom-row {
     padding-bottom: 25px;
 }
-#gif-style {
+.gif-style {
     background: rgb(85, 110, 110);
     height: 150px;
     margin: 5px;
     border: 3px solid aquamarine;
     border-radius: 20px;
     padding: 10px;
-
+}
+#ratingLabel {
+    color: rgb(255, 133, 153);;
+    margin-bottom: 0;
+    margin-left: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+#box {
+width: 250px;
+float: left;
+margin: 10px;
+background: none;
+border: none;
 }
